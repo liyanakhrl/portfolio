@@ -1,31 +1,26 @@
-<body>
-  <header>
+<header>
+  <!-- Top menu icon for smaller screens -->
+  <div class="menu-icon" style="padding: 10px;">
+    <i class="fa fa-bars" (click)="showMenu()"></i>
+  </div>
 
-    <!-- Top menu icon for smaller screens -->
-    <div class="menu-icon" style="padding: 10px;">
-      <i class="fa fa-bars" (click)="showMenu()"></i>
-    </div>
+  <!-- Top menu list for larger screens -->
+  <nav class="menu-list">
+    <ul>
+      <li><a href="#about" (click)="showMenu()">About</a></li>
+      <li><a href="#skills" (click)="showMenu()">Skills</a></li>
+      <li><a href="#projects" (click)="showMenu()">Projects</a></li>
+      <li><a href="#contactme" (click)="showMenu()">Contact</a></li>
+    </ul>
+  </nav>
 
-    <!-- Top menu list for larger screens -->
-    <nav class="menu-list">
-      <ul>
-        <li><a href="#about" (click)="showMenu()">About</a></li>
-        <li><a href="#skills" (click)="showMenu()">Skills</a></li>
-        <li><a href="#projects" (click)="showMenu()">Projects</a></li>
-        <li><a href="#contactme" (click)="showMenu()">Contact</a></li>
-      </ul>
-    </nav>
-
-
-
-  </header>
-
+</header>
+<div class="content">
   <main>
-
     <section id="about">
       <h2>About Me</h2>
-      <p>Hi, I'm Liyana Khairul and I'm a software developer specializing in Angular, ASP.NET, and React. I also have
-        experience with backend development using Express, ASP.NET Core, and Springboot Hibernate.</p>
+      <p>Hi, I'm Liyana Khairul and I'm a software developer, commonly on front end development using in Angular and Flutter; minor involvement in ASP.NET, and React. I also have
+        experience with backend development using Express, ASP.NET Core, and recently Springboot.</p>
       <p>My goal is to develop high-quality web applications that meet the needs of my clients and users. I enjoy
         learning new technologies and applying them to solve real-world problems.</p>
     </section>
@@ -45,24 +40,27 @@
       </section>
 
       <section id="projects">
-        <h2>Projects</h2>
+        <div class="project-container">
+          <h2>Projects</h2>
+        </div>
+
         <ul>
-          <li>
-            <h3>User Management System</h3>
-            <p>A basic web application to demonstrate basic Create, Read, Update, Delete functions and Basic
-              Authentication</p>
-            <p>This application uses Angular and Springboot</p>
-            <a href="#">View Project (Coming Soon)</a>
-          </li>
-          <li>
-            <h3>Payroll</h3>
-            <p>A Angular-based web application to print employee payslip</p>
-            <a href="#">View Project (Coming Soon)</a>
-          </li>
-          <li>
-            <h3>Project 3</h3>
-            <p>An E-commerce website built using Angular and Node.js express</p>
-            <a href="#">View Project (Coming Soon)</a>
+          <li *ngFor="let item of projectList">
+            <div class="project">
+              <h2 class="project-name">{{item.name}}</h2>
+              <span class="status status-in-progress" [ngClass]="{
+                'status-in-progress': !item.enabled,
+                'status-complete': item.enabled
+              }">{{item.status}}</span>
+              <p>{{item.description}}</p>
+            </div>
+            <div class="tag-container">
+              <span class="tag tag-blue" *ngFor="let tag of item.techStack">{{tag}}</span>
+            </div>
+            <div class="link-list">
+              <a class="link" href="{{item.link}}" [ngClass]="{'disabled' : !item.enabled}">View Project (Coming Soon)</a>
+              <a class="link" href="{{item.demoVideo}}" target="_blank">Video demo</a>
+            </div>
           </li>
         </ul>
       </section>
@@ -88,7 +86,7 @@
       <div class="icon-list">
 
         <a href="https://github.com/liyanakhrl" target="_blank"><img
-            src="https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png"></a>
+            src="https://cdn4.iconfinder.com/data/icons/social-media-and-logos-11/32/Logo_Github-256.png"></a>
         <a href="https://www.linkedin.com/in/liyana-khairul-683105171/" target="_blank"><img
             src="https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png"></a>
         <i class="fa-brands fa-linkedin-in"></i>
@@ -101,7 +99,8 @@
 
   </main>
 
-  <footer>
-    <p>&copy; 2023 Liyana Khairul. All rights reserved.</p>
-  </footer>
-</body>
+</div>
+
+<footer>
+  <p>&copy; 2023 Liyana Khairul. All rights reserved.</p>
+</footer>

@@ -1,10 +1,10 @@
 /* General styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Montserrat';
+  font-size: 22px;
   font-size: 16px;
-  line-height: 1.4;
-  color: #333;
-  margin: 0;
+  background: black;
+  color: white;
 }
 
 h1,
@@ -14,8 +14,24 @@ h3 {
 }
 
 a {
-  color: #007bff;
+  color: lightblue;
   text-decoration: none;
+  font-weight: bold;
+
+  &.disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
+  }
+
+  &:hover {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+}
+
+.content {
+  width: 100%;
 }
 
 ul {
@@ -37,6 +53,11 @@ header {
 /* Hide menu list by default on smaller screens */
 .menu-list {
   display: none;
+
+  ul li a {
+    color: black;
+    text-align: center;
+  }
 }
 
 /* Show menu list when menu icon is clicked on smaller screens */
@@ -45,6 +66,135 @@ header {
   display: block;
   padding: 10px;
 }
+
+.tag {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.tag-blue {
+  background-color: wheat;
+  margin: 3px;
+  padding: 3px;
+  color: black;
+
+}
+
+.tag {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.tag-blue {
+  background-color: wheat;
+  margin: 3px;
+  padding: 3px;
+  color: black;
+
+}
+
+.link-list {
+  display: flex;
+  flex-direction: row;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #1A73E8;
+  width: 100%;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+
+  & a.link {
+    color:#1A73E8;
+    margin-left: 10px;
+  }
+}
+
+
+.project-name {
+  display: inline-block;
+  margin-right: 10px;
+  /* adjust as needed */
+}
+
+.status {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  top: 0;
+}
+
+.status-in-progress {
+  background-color: orange;
+  color: #fff;
+}
+
+.status-complete {
+  background-color: green;
+  color: #fff;
+}
+
+.status-delayed {
+  background-color: red;
+  color: #fff;
+}
+
+.project-container {
+  display: flex;
+  align-items: center;
+
+  & h1 {
+    margin-right: 20px;
+  }
+
+  & .dropdown {
+    position: relative;
+  }
+
+  &.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+
+  &.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    display: none;
+    min-width: 160px;
+    padding: 12px;
+    background-color: #f1f1f1;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  &.dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+}
+
+
+
 
 /* Show menu list by default on larger screens */
 @media (min-width: 768px) {
@@ -86,13 +236,25 @@ nav a {
 /* Main styles */
 main {
   margin-top: 80px;
-  max-width: 1024px;
-  margin: 80px auto 0;
-  padding: 16px;
 }
 
 section {
-  margin-bottom: 64px;
+  margin-bottom: 2px;
+  padding-left: 5px;
+  border-radius: 2px;
+  left: 0;
+  width: 100%;
+  // border: 1px solid;
+
+  &:nth-child(1) {
+    text-align: center;
+    padding: 10px;
+
+  }
+
+  &:last-child {
+    padding: 10px;
+  }
 }
 
 .icon-list {
@@ -115,12 +277,17 @@ section {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  & section:last-child {
+    margin-left: 10px;
+  }
 }
 
 #skills,
 #projects {
-  width: 48%;
-  margin-bottom: 64px;
+  flex: 1;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 
@@ -144,6 +311,8 @@ a.button {
 
 a.button:hover {
   background-color: #0069d9;
+  text-decoration: underline;
+  font-weight: 100;
 }
 
 /* Contact form styles */
@@ -167,6 +336,7 @@ textarea {
   border-radius: 4px;
   margin-bottom: 16px;
 }
+
 
 input:focus,
 textarea:focus {
@@ -234,4 +404,19 @@ button[type="submit"]:hover {
     font-size: 14px;
     padding: 8px 16px;
   }
+}
+
+
+footer {
+  bottom: 0;
+  margin: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  color: white;
+  border-top: #ccc solid;
+  background: black;
+  text-align: center;
+  color: white;
+  font-size: 10px;
 }
