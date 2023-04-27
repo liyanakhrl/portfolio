@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
       status: 'Work in progress',
       link: 'http://www.google.com',
       enabled: false,
-      demoVideo: 'http://youtube.com'
+      demoVideo: ''
     },
     {
       id: 3,
@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
       status: 'Work in progress',
       link: 'http://www.google.com',
       enabled: false,
-      demoVideo: 'http://youtube.com'
+      demoVideo: ''
     },
     {
       id: 3,
@@ -58,6 +58,7 @@ export class AppComponent implements OnInit {
       status: 'Work in progress',
       link: 'http://www.google.com',
       enabled: false,
+      demoVideo: ''
     },
     {
       id: 3,
@@ -68,7 +69,7 @@ export class AppComponent implements OnInit {
       status: 'Work in progress',
       link: 'http://www.google.com',
       enabled: false,
-      demoVideo: 'http://youtube.com'
+      demoVideo: ''
     }
   ]
 

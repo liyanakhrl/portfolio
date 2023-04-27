@@ -59,7 +59,7 @@
             </div>
             <div class="link-list">
               <a class="link" href="{{item.link}}" [ngClass]="{'disabled' : !item.enabled}">View Project (Coming Soon)</a>
-              <a class="link" href="{{item.demoVideo}}" target="_blank">Video demo</a>
+              <a class="link" href="{{item.demoVideo}}"  [ngClass]="{'disabled' : item.demoVideo === ''}" target="_blank">Video demo</a>
             </div>
           </li>
         </ul>
